@@ -1,0 +1,23 @@
+name: frequently-running-task
+
+on:
+  schedule:
+    # Your cron schedule goes here
+    - cron: '0 * * * *'
+
+jobs:
+  my-task:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run my script
+        run: echo "Task is running!"
+
+steps:
+  - name: Run script with secrets
+    env:
+      MY_EMAIL = os.environ.get("MY_EMAIL")
+      MY_PASSWORD = os.environ.get("MY_PASSWORD")
+      TO_ADDRS = os.environ.get("TO_ADDRS")
+    run: python python main.py
