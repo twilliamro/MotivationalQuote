@@ -34,5 +34,5 @@ jobs:
           # Add more secrets in Settings > Secrets > Actions
           MY_EMAIL: ${{ secrets.MY_EMAIL }}
           MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
-          TO_ADDRS: ${{ secrets.TO_ADDRS" }}        
+          TO_ADDRS: ${{ secrets.TO_ADDRS }}
         run: python main.py
