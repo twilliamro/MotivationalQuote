@@ -1,9 +1,12 @@
+import os
+
+# import os and use it to get the Github repository secrets
+MY_EMAIL = os.environ.get("MY_EMAIL")
+MY_PASSWORD = os.environ.get("MY_PASSWORD")
+TO_ADDRS = os.environ.get("TO_ADDRS")
 import datetime as dt
 import smtplib
 import random
-my_email = "python100xtest@gmail.com"
-my_email_password = "pggh tksa qccp btcn"
-to_addrs = "python100_test@yahoo.com",
 
 day_of_the_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
@@ -16,10 +19,10 @@ with open(file="quotes.txt") as file:
 
 with smtplib.SMTP("smtp.gmail.com", 587) as connection:
     connection.starttls()
-    connection.login(user=my_email, password=my_email_password)
+    connection.login(user=MY_EMAIL, password=MY_PASSWORD)
     connection.sendmail(
-        from_addr=my_email,
-        to_addrs=to_addrs,
+        from_addr=MY_EMAIL,
+        to_addrs=TO_ADDRS,
         msg=f"Subject: Happy {day_of_the_week[today_of_the_week]}\n\n {random.choice(quotes)}"
     )
 print("Email sent successfully!")
